@@ -9,15 +9,18 @@
     </div>  
     <div class="col-sm-12 texto">
         <p class="ne">Registra los datos de posibles
-            <br/>clientes y nosotros nos  
-            <br/>encargamos de contactarlos.
-            <br/> 
-            <br/> Si se convierten en clientes,</p>
-        <p class="ne azul">
+            clientes y nosotros nos  
+            encargamos de contactarlos.
+            Si se convierten en clientes,</p>
+        <p class="azul">
            suman a tu perfil. 
         </p>
     </div>    
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button (click)="cerrar()" type="button" mat-raised-button class="boton-rojo componente-login-form">Aceptar </button>
+    <button (click)="cerrar()" type="submit" mat-raised-button class="boton-rojo componente-login-form">Aceptar </button>
+  <!-- <button mat-button [mat-dialog-close]="true">Aceptar</button> -->
+  <div class="clear-fix"></div>
 </mat-dialog-actions>
+
+
