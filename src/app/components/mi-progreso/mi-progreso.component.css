@@ -4,7 +4,7 @@
 }
 
 #progreso {
-    display: inline;
+    display: table-header-group;
     border: 1px solid rgba(178,178,178,0.60);
 }
 
@@ -68,6 +68,7 @@
     font-weight: 700;
     letter-spacing: 0;
     font-family: 'OpenSans-SemiBold';
+    padding: 5px;
 }
 .iconos-premios {
     height: auto;

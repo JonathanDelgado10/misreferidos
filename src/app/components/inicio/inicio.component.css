@@ -70,7 +70,7 @@
 
 .alineacion-boton {
     text-align: right;
-    margin-bottom: 25px;
+    margin-bottom: 70px;
 }
 
 .datos-principales {
@@ -121,7 +121,7 @@ mat-button-toggle {
     font-family: 'Roboto Medium';
     font-size: 16px;
     text-align: center;
-    width: 150px;
+    width: 50%;
 }
 
 .mat-button-toggle-checked {
@@ -138,7 +138,7 @@ mat-button-toggle-group {
     box-shadow: none;
     border-radius: 100px;
     height: 40px;
-    width: 300px;
+    width: 100%;
 }
 
 #menu-container {

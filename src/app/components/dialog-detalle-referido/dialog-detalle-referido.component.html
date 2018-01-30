@@ -22,7 +22,7 @@
     </div>
 </div>
 <mat-dialog-content>
-    <div class="row vertical-center" id="estados-iconos">
+    <div class="col-md-12 vertical-center" id="estados-iconos">
         <div class="circle circle-active">
             <i class="icono icon-notes icon-lg"></i>            
         </div>
@@ -74,14 +74,11 @@
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="componente-captura-referido">
-                <input matInput placeholder="Fecha de nacimiento" type="text"
-                 class="font-detallereferido-input"
-                 formControlName="fechaNacimiento">
+                <input class="font-detallereferido-input" matInput readonly [max]="maxDate" [matDatepicker]="picker" placeholder="Fecha de nacimiento" formControlName="fechaNacimiento">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker touchUi="true"></mat-datepicker>
                 <mat-error *ngIf="formaParticular.get('fechaNacimiento').errors?.required">
                     Fecha de nacimiento <strong>requerida</strong>
-                </mat-error>
-                <mat-error *ngIf="formaParticular.get('fechaNacimiento').errors?.fechaInvalida">
-                    Fecha de nacimiento <strong>invalida</strong>
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="componente-captura-referido">

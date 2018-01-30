@@ -41,6 +41,8 @@ export class DialogNuevoReferidoComponent implements OnInit{
     public zonas:any[] = [];
     public sucursales:any[] = [];
         
+    public maxDate: Date = new Date();
+
     constructor(@Inject(MAT_DIALOG_DATA) public data: any,
                 private dialogRef:MatDialogRef<DialogNuevoReferidoComponent>,
                 private referidosService: ReferidosService,
@@ -61,8 +63,7 @@ export class DialogNuevoReferidoComponent implements OnInit{
                                             Validators.required
                                             ]),
             'fechaNacimiento': new FormControl('' ,  [
-                                            Validators.required,
-                                            this.fechaInvalida
+                                            Validators.required
                                             ]),
             'correo': new FormControl('' ,  [
                                             Validators.required,
@@ -125,9 +126,11 @@ export class DialogNuevoReferidoComponent implements OnInit{
         }
 
         this.referido = this.formaParticular.value;
+        let fecha = new Date(this.formaParticular.get("fechaNacimiento").value);
+        this.referido.fechaNacimiento = fecha.toLocaleDateString();
         this.referido.tipo = this.TIPO_PARTICULAR;
         let token = this.usuarioFirmado.token;
-
+        
         this.isParticular = true;        
         this.referidosService.guardarReferido(this.referido, token)
                         .subscribe(res => {
@@ -267,20 +270,5 @@ export class DialogNuevoReferidoComponent implements OnInit{
                 break;
             }
         }        
-    }
-
-    private fechaInvalida(control: FormControl): { [s:string]:boolean }  {
-        try {
-            let fechaPartes:any[] = control.value.split('/');
-            let fechaFormato:string = `${fechaPartes[1]}/${fechaPartes[0]}/${fechaPartes[2]}`;
-            let fecha = new Date(fechaFormato);
-            if (fecha.getTime() > 0 || fechaPartes.length != 3) {
-                return null;
-            }
-        } catch(e){}
-
-        return {
-            fechaInvalida:true
-        }
     }
 }

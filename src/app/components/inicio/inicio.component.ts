@@ -11,33 +11,17 @@ import { SesionService } from 'app/services/referidos/sesion.service';
 import { UsuarioFirmado } from 'app/interfaces/usuario-firmado'
 import { environment } from 'environments/environment';
 
+import { Router, ActivatedRoute } from '@angular/router';
+
+declare var Desafio;
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit{
-
-    public iniciales = document.getElementById('datos-iniciales');
-    
-
-   
-    // // var container = document.getElementById('container')
-    // iniciales.addEventListener('scroll', () => console.log('ev1'));
-    // container.addEventListener('scroll', () => console.log('ev2'))
-    // container.addEventListener('scroll', () => console.log('ev3'))
-
-    // $document.on('scroll', function() {
-    //     // do your things like logging the Y-axis
-    //     console.log($window.scrollY);
-    
-    //     // or pass this to the scope
-    //     $scope.$apply(function() {
-    //         $scope.pixelsScrolled = $window.scrollY;
-    //     })
-    // });
-    
-    
+  
   public isUltimosReferidos:boolean = false;
   public isMiprogresoSeleccionado:boolean = true;
   public isMisReferidosSeleccionado:boolean = false;
@@ -49,13 +33,18 @@ export class InicioComponent implements OnInit{
   private TIPO_PARTICULAR:number = environment.TIPO_PARTICULAR;
   private TIPO_PYME:number = environment.TIPO_PYME;
 
+  public isIOS:boolean = false;
+
   constructor(private referidosService: ReferidosService,
               private sesionService: SesionService,
-              public dialog: MatDialog) { 
+              public dialog: MatDialog,
+              private router: Router) { 
     this.isUltimosReferidos = true;
 
     this.usuarioFirmado = this.sesionService.getUsuarioFirmado();
     let token:string = this.usuarioFirmado.token;
+
+    this.isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
 
     referidosService.getReferidos(token)
                     .subscribe(res => {
@@ -114,5 +103,7 @@ export class InicioComponent implements OnInit{
         });
   } 
 
- 
+  public cerrarSesionIOS() {
+    Desafio.cerrarSesionIOS();
+  }
 }

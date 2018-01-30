@@ -45,6 +45,8 @@ export class DialogDetalleReferidoComponent implements OnInit{
     public sucursalesParticular:any[] = [];
     public sucursalesPyme:any[] = [];
 
+    public maxDate: Date = new Date();
+
     constructor(@Inject(MAT_DIALOG_DATA) public data: any,
                 private dialogRef:MatDialogRef<DialogDetalleReferidoComponent>,
                 private referidosService: ReferidosService,
@@ -64,9 +66,8 @@ export class DialogDetalleReferidoComponent implements OnInit{
                 'apmat': new FormControl({value: data.referido.apMat, disabled: this.isDisabledCamposParticular},  [
                                                 Validators.required
                                                 ]),
-                'fechaNacimiento': new FormControl({value: data.referido.fecNac, disabled: this.isDisabledCamposParticular},  [
-                                                Validators.required,
-                                                this.fechaInvalida
+                'fechaNacimiento': new FormControl({value: new Date(data.referido.fecNac), disabled: this.isDisabledCamposParticular},  [
+                                                Validators.required
                                                 ]),
                 'correo': new FormControl({value: data.referido.correo, disabled: this.isDisabledCamposParticular},  [
                                                 Validators.required,
@@ -197,6 +198,8 @@ export class DialogDetalleReferidoComponent implements OnInit{
         }
 
         this.referido = this.formaParticular.value;
+        let fecha = new Date(this.formaParticular.get("fechaNacimiento").value);
+        this.referido.fechaNacimiento = fecha.toLocaleDateString();
         this.referido.tipo = this.TIPO_PARTICULAR;
         let token = this.usuarioFirmado.token;
 
@@ -321,21 +324,6 @@ export class DialogDetalleReferidoComponent implements OnInit{
             duration: 3000,
             extraClasses: ['blue-snackbar']
         });
-    }
-
-    private fechaInvalida(control: FormControl): { [s:string]:boolean }  {
-        try {
-            let fechaPartes:any[] = control.value.split('/');
-            let fechaFormato:string = `${fechaPartes[1]}/${fechaPartes[0]}/${fechaPartes[2]}`;
-            let fecha = new Date(fechaFormato);
-            if (fecha.getTime() > 0 || fechaPartes.length != 3) {
-                return null;
-            }
-        } catch(e){}
-
-        return {
-            fechaInvalida:true
-        }
     }
 
     public verDetalleSucursal($sucursal:string){

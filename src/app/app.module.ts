@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+
 
 //Terceros
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -79,7 +81,8 @@ import { AutenticacionGuardService } from './services/referidos/autenticacion-gu
   providers: [ 
                ReferidosService,
                SesionService,
-               AutenticacionGuardService
+               AutenticacionGuardService,
+               {provide: MAT_DATE_LOCALE, useValue: 'es-MX'},
              ],
   bootstrap: [AppComponent],
   entryComponents: [

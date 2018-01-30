@@ -5,8 +5,13 @@
 }
 
 #splash-container {
-    background: #EC0000;
+    /* background: #EC0000; */
     /* background-image: url("/assets/img/img_splashscreen.svg"); */
+    background-repeat: no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     color: #FFFFFF;
     position: absolute;
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="568px" viewBox="0 0 320 568" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 11</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Flujo-V4" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-82.000000, -295.000000)">
+        <g id="splash-screen" transform="translate(82.000000, 295.000000)">
+            <g id="Group-11">
+                <rect id="background" fill="#EC0000" x="0" y="0" width="320" height="568"></rect>
+                <g id="cortes" transform="translate(0.000000, 348.000000)" fill="#FFFFFF">
+                    <polygon id="background" fill-opacity="0.3" points="0 132.447881 0 0 320 97.4861753 320 220 0 220"></polygon>
+                    <polygon id="background" fill-opacity="0.2" points="0 117.255055 320 40 320 220 0 220"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

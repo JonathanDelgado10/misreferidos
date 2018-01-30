@@ -1,8 +1,7 @@
 /*estilos modal slider */
 .w-100 {
-    margin-left: 72px;
     text-align: center;
-    width: 50% !important;
+    width: 100% !important;
 }
 .center-text-modal {
     text-align: center;
@@ -14,7 +13,7 @@
     right: 0;
     z-index: 15;
     display: flex;
-    bottom: -110px;
+    bottom: -30px;
     padding-left: 0;
     margin-left: 15%;
     list-style: none;
@@ -34,9 +33,6 @@
     background-size: 100%;
     display: inline-block;
     background: transparent no-repeat center center;
-}
-.clear-fix-modal {
-    padding: 50px;
 }
 .titulo-fecha {
     color: #aba6a6;

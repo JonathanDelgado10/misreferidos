@@ -2,7 +2,7 @@
     <div class="h-30 sticky-top" id="datos-iniciales-container">
         <div class="row" id="datos-iniciales">
             <div class="col-3 text-center">
-                <img class="img-fluid" src="assets/img/avatar_icon.svg" alt="Perfil">
+                <img class="img-fluid" src="assets/img/avatar_icon.svg" alt="Perfil">                
             </div>
             <div class="col-7">
                 <span>
@@ -11,12 +11,10 @@
                 <span>
                     <p class="datos-principales" id="ranking-aprobados"> <i class="icono icon-trophy gris"></i>  {{usuarioFirmado.numReferidosTotal}} CLIENTES</p>
                 </span>
-                
-                
-                
             </div>
             <div class="col-2">
-                <button (click)="muestraBases()" mat-mini-fab id="ayuda"><i class="icono icon-info text-danger"></i></button>
+                <button *ngIf="isIOS" (click)="cerrarSesionIOS()" mat-mini-fab color="warn">Salir</button>
+                <button (click)="muestraBases()" mat-mini-fab id="ayuda"><i class="icono icon-info text-danger"></i></button>                
             </div>
         </div>
         <div class="row" id="menu-container">
@@ -34,7 +32,7 @@
     </div>
     <app-mi-progreso *ngIf="isMiprogresoSeleccionado"></app-mi-progreso>
     <app-mis-referidos *ngIf="isMisReferidosSeleccionado" [recargaMisReferidos]="recargaMisReferidos" ></app-mis-referidos>
-    <div class="col-sm-12 alineacion-boton fixed-bottom">
+    <div class="col-md-2 alineacion-boton fixed-bottom">
         <button id="fab-agregar-referido" mat-fab (click)="nuevoReferido()">
             <i class="icono icon-user-add"></i>
         </button>

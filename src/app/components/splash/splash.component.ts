@@ -8,7 +8,7 @@ import { SesionService } from 'app/services/referidos/sesion.service';
   styleUrls: ['./splash.component.css']
 })
 export class SplashComponent implements OnInit {
-  public urlFondo1: string = "url('assets/img/img_splashscreen.svg')"
+  public urlFondo1: string = "url('assets/img/splashscreen_background.svg')";
 
   
   constructor(private router: Router,

@@ -46,3 +46,35 @@
 .font-misRferidos-gruop {
     font-family: OpenSans-Regular;
 }
+
+
+/deep/.mat-tab-label {
+    min-width: 0!important;
+    padding: 3px!important;
+    margin: 3px!important;
+    color: #B2B2B2;
+    font-family: 'Roboto Bold';
+    font-size: 16px;
+    
+
+}
+
+ /deep/.mat-tab-label-active {
+    min-width: 0!important;
+    padding: 3px!important;
+    margin: 3px!important;
+    color: #EC0000;
+    font-family: 'Roboto Bold';
+    font-size: 16px;
+    
+}
+
+/* Styles for the ink bar */
+/deep/.mat-tab-group.mat-primary .mat-ink-bar, /deep/.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #EC0000;
+    color: #EC0000;
+}
+
+/deep/.mat-tab-group.mat-primary .mat-tab-label:focus, /deep/.mat-tab-group.mat-primary .mat-tab-link:focus, /deep/.mat-tab-nav-bar.mat-primary .mat-tab-label:focus, /deep/.mat-tab-nav-bar.mat-primary .mat-tab-link:focus {
+    background-color:#FFFFFF;
+}
